@@ -204,11 +204,11 @@
 
         // Function to handle search
         function performSearch() {
-            const searchTerm = document.querySelector('.search-input').value.trim(); // Trim to avoid leading/trailing spaces
-            // Directly construct the proxy URL using the specified format
-            const proxyUrl = `https://math-academics.vercel.app/reviews/${searchTerm}`;
-            // Log for demonstration
-            console.log('Searching for:', searchTerm);
+            const searchTerm = document.querySelector('.search-input').value;
+            // Replace the URL below with your proxy search URL
+            const proxyUrl = example.com/search?q=${encodeURIComponent(searchTerm)};
+            // Redirect or fetch data based on your proxy implementation
+            console.log('Searching for:', searchTerm); // Log for demonstration
             window.location.href = proxyUrl; // Redirecting to the proxy URL
         }
     </script>
