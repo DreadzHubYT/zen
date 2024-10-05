@@ -61,6 +61,41 @@
         /* Style for the search bar */
         .search-bar {
             display: flex;
+            margin-top: 20px; /* Add some margin on top */
+        }
+
+        .search-input {
+            padding: 10px;
+            font-size: 1em; /* Font size for input */
+            border: 2px solid #7000cd; /* Border color */
+            border-radius: 5px 0 0 5px; /* Rounded corners */
+            outline: none; /* Remove outline on focus */
+            color: #fff; /* Text color */
+            background-color: #333; /* Background color */
+            transition: border-color 0.3s; /* Transition effect */
+        }
+
+        .search-input::placeholder {
+            color: #aaa; /* Placeholder text color */
+        }
+
+        .search-input:focus {
+            border-color: #fff; /* Change border color on focus */
+        }
+
+        .search-button {
+            padding: 10px 15px;
+            font-size: 1em; /* Font size for button */
+            border: none; /* Remove border */
+            border-radius: 0 5px 5px 0; /* Rounded corners */
+            background-color: #7000cd; /* Button color */
+            color: white; /* Button text color */
+            cursor: pointer; /* Change cursor to pointer */
+            transition: background-color 0.3s; /* Transition effect */
+        }
+
+        .search-button:hover {
+            background-color: #5a00a6; /* Darken button on hover */
         }
 
     </style>
@@ -81,11 +116,13 @@
     <script>
         // Array of phrases
         const phrases = [
-            "ermm what the sigma.",
-            "i love interstellar!",
+            "Ermm what the sigma.",
+            "I love interstellar!",
             "v1.00 is horrible!",
-            "i can't code.",
-            "siege is a fun game!"
+            "I can't code.",
+            "Siege is a fun game!",
+            "Wow fun site!,
+            "Sick burn bro!"
         ];
         
         // Function to display a random phrase
