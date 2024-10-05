@@ -25,13 +25,15 @@
         }
 
         .main {
-            position: relative; /* Make the main div position relative */
-            z-index: 1; /* Ensure it's above the particles */
+            position: absolute; /* Change to absolute for better centering */
+            top: 50%; /* Center vertically */
+            left: 50%; /* Center horizontally */
+            transform: translate(-50%, -50%); /* Adjust position */
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100vh; /* Full viewport height */
+            height: auto; /* Adjusted to auto to prevent overflow */
             color: #7000cd; /* Heading color */
             text-shadow: 0 0 20px #7000cd, 0 0 30px #7000cd; /* Glowing text effect */
             user-select: none; /* Prevent text selection */
