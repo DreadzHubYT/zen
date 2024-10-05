@@ -1,30 +1,33 @@
-<!--
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="indexcss.css">
-  <title>Zen</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="indexcss.css">
+    <title>Zen</title>
 </head>
--->
- 
-  <div class="main"></div>
- 
- <!-- only used the JS bit underneath to generate the  box-shadow CSS box-shadow input.  list that layered shadow in line, let light that shine. 
--->
+<body>
+    <div class="main"></div>
 
+    <script>
+        function randomNumber(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
 
-<!--
+        const STAR_COUNT = 400; 
+        let result = "";
 
-function randomNumber(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min
-}
+        for (let i = 0; i < STAR_COUNT; i++) {
+            const xPosition = randomNumber(-50, 50);
+            const yPosition = randomNumber(-50, 50);
+            const size = randomNumber(0, 1);
 
-const STAR_COUNT = 400
-let result = ""
-for(let i = 0; i < STAR_COUNT; i++){
-    result += `${randomNumber(-50, 50)}vw ${randomNumber(-50, 50)}vh ${randomNumber(0, 1)}px ${randomNumber(0, 1)}px #fff,`
-}
-console.log(result.substring(0, result.length - 1))
+            result += `${xPosition}vw ${yPosition}vh ${size}px ${size}px #fff, `;
+        }
 
--->
+        // Log the result, removing the last comma and space
+        console.log(result.trim().slice(0, -1));
+    </script>
+</body>
+</html>
