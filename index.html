@@ -57,7 +57,7 @@
             color: #ffffff; /* Text color */
             text-shadow: 0 0 10px #ffffff; /* Glowing effect */
         }
-        
+
         /* Style for the search bar */
         .search-bar {
             display: flex;
@@ -126,17 +126,17 @@
             "R.I.P Project Unblocked.",
             "Sick burn bro!"
         ];
-        
+
         // Function to display a random phrase
         function displayRandomPhrase() {
             const randomIndex = Math.floor(Math.random() * phrases.length);
             const randomPhrase = phrases[randomIndex];
             document.getElementById('random-phrase').textContent = randomPhrase;
         }
-        
+
         // Call the function to display a random phrase on page load
         displayRandomPhrase();
-        
+
         // Initialize particles.js
         particlesJS("particles-js", {
             particles: {
@@ -206,7 +206,8 @@
         function performSearch() {
             const searchTerm = document.querySelector('.search-input').value;
             // Replace the URL below with your proxy search URL
-            const proxyUrl = example.com/search?q=${encodeURIComponent(searchTerm)};
+            const proxyUrl = `https://your-proxy-url.com/search?q=${encodeURIComponent(searchTerm)}`;
+            const proxyUrl = `example.com/search?q=${encodeURIComponent(searchTerm)}`;
             // Redirect or fetch data based on your proxy implementation
             console.log('Searching for:', searchTerm); // Log for demonstration
             window.location.href = proxyUrl; // Redirecting to the proxy URL
