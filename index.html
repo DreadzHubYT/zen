@@ -21,7 +21,7 @@
             background-color: #000;
             margin: 0;
             font-family: Arial, sans-serif;
-            overflow: hidden; /* Disable scrolling */
+            overflow: hidden; /* Prevent scrolling */
         }
 
         .main {
@@ -86,10 +86,9 @@
 
         /* Navigation bar styles */
         .nav {
-            position: absolute; /* Positioning it relative to the viewport */
-            top: 20px; /* Space from the top */
-            right: 20px; /* Space from the right */
             display: flex;
+            justify-content: center;
+            margin: 20px 0; /* Margin above the navbar */
             z-index: 1; /* Ensure it's above the particles */
         }
 
@@ -112,7 +111,7 @@
 <body>
     <div id="particles-js"></div>
     
-    <!-- Navigation bar positioned at the top right -->
+    <!-- Navigation bar -->
     <div class="nav">
         <a href="#home">Home</a>
         <a href="#games">Games</a>
