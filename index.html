@@ -206,8 +206,7 @@
         // Function to handle search
         function performSearch() {
             const searchTerm = document.querySelector('.search-input').value;
-            const template = 'https://example.com/search?q=%s'; // Your search template
-            const searchUrl = search(searchTerm, template); // Call the search function
+            const searchUrl = search(searchTerm); // Call the search function without a template
             console.log('Searching for:', searchTerm); // Log for demonstration
             window.location.href = searchUrl; // Redirecting to the constructed URL
         }
