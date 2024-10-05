@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        @keyframes rotate-outline {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        @keyframes rotate-gradient {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
         }
 
         .button-wrapper {
@@ -24,21 +24,22 @@
             font-size: 18px;            /* Text size */
             cursor: pointer;            /* Pointer on hover */
             position: relative;         /* Position relative to its parent */
-            z-index: 1;                 /* Ensures button stays above the outline */
+            z-index: 1;                 /* Ensure button stays above the outline */
         }
 
         .button-wrapper::before {
-            content: '';  /* Empty content to create a visual element */
+            content: '';  /* Empty content for the outline effect */
             position: absolute;
-            top: -5px;  /* Adjusting to be around the button */
+            top: -5px;  /* Adjust to wrap around the button */
             left: -5px;
             right: -5px;
             bottom: -5px;
-            border-radius: 20px; /* Rounded edges */
+            border-radius: 20px; /* Rounded edges to match button */
             padding: 5px;
-            background: conic-gradient(red, orange, yellow, green, blue, indigo, violet, red);  /* Rainbow gradient */
-            z-index: 0;  /* Behind the button */
-            animation: rotate-outline 3s linear infinite;  /* Rotating effect */
+            background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet, red);  /* Rainbow gradient */
+            background-size: 300%; /* Larger background to allow for smooth animation */
+            z-index: 0;  /* Place the outline behind the button */
+            animation: rotate-gradient 4s linear infinite;  /* Animate the gradient */
         }
 
         .curved-button:hover {
