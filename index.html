@@ -1,191 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        @keyframes rotate-gradient {
-            0% { background-position: 0% 50%; }
-            25% { background-position: 50% 100%; }
-            50% { background-position: 100% 50%; }
-            75% { background-position: 50% 0%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        body {
-            margin: 0;
-            overflow: hidden; /* Prevent scrollbars */
-            position: relative; /* Position relative for absolute children */
-        }
-
-        .particles-js {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            z-index: 0; /* Place it behind other elements */
-        }
-
-        .button-wrapper {
-            position: relative;
-            display: inline-block;
-            z-index: 1; /* Ensure the button is above the particles */
-            margin-top: 50px; /* Center vertically if needed */
-        }
-
-        .curved-button {
-            background-color: #111111;  /* Button background color */
-            color: white;               /* Button text color */
-            width: 200px;               /* Button width */
-            height: 60px;               /* Button height */
-            border: none;               /* No border */
-            border-radius: 15px;        /* Curved edges */
-            font-size: 18px;            /* Text size */
-            cursor: pointer;            /* Pointer on hover */
-            position: relative;         /* Position relative to its parent */
-            z-index: 1;                 /* Ensure button stays above the outline */
-        }
-
-        .button-wrapper::before {
-            content: '';  /* Empty content for the outline effect */
-            position: absolute;
-            top: -5px;  /* Adjust to wrap around the button */
-            left: -5px;
-            right: -5px;
-            bottom: -5px;
-            border-radius: 20px; /* Rounded edges to match button */
-            padding: 5px;
-            background: linear-gradient(270deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #ee82ee, #ff0000);  /* Brighter rainbow gradient */
-            background-size: 200%; /* Larger background for smoother animation */
-            z-index: 0;  /* Place the outline behind the button */
-            animation: rotate-gradient 4s linear infinite;  /* Circular rotation effect */
-        }
-
-        .curved-button:hover {
-            background-color: #232323;  /* Button hover color */
-        }
-    </style>
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>calm galaxy</title>
 </head>
-<body>
 
-    <div id="particles-js" class="particles-js"></div>
+ 
+  <div class="main"></div>
 
-    <div class="button-wrapper">
-        <button class="curved-button">Click Me!</button>
-    </div>
+function randomNumber(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min
+}
 
-    <script>
-        particlesJS('particles-js', {
-            particles: {
-                number: {
-                    value: 100,
-                    density: {
-                        enable: true,
-                        value_area: 800
-                    }
-                },
-                color: {
-                    value: "#ffffff"
-                },
-                shape: {
-                    type: "circle",
-                    stroke: {
-                        width: 0,
-                        color: "#000000"
-                    },
-                    polygon: {
-                        nb_sides: 5
-                    },
-                    image: {
-                        src: "img/github.svg",
-                        width: 100,
-                        height: 100
-                    }
-                },
-                opacity: {
-                    value: 0.5,
-                    random: false,
-                    anim: {
-                        enable: false,
-                        speed: 1,
-                        opacity_min: 0.1,
-                        sync: false
-                    }
-                },
-                size: {
-                    value: 5,
-                    random: true,
-                    anim: {
-                        enable: false,
-                        speed: 40,
-                        size_min: 0.1,
-                        sync: false
-                    }
-                },
-                line_linked: {
-                    enable: true,
-                    distance: 150,
-                    color: "#ffffff",
-                    opacity: 0.4,
-                    width: 1
-                },
-                move: {
-                    enable: true,
-                    speed: 6,
-                    direction: "none",
-                    random: false,
-                    straight: false,
-                    out_mode: "out",
-                    bounce: false,
-                    attract: {
-                        enable: false,
-                        rotateX: 600,
-                        rotateY: 1200
-                    }
-                }
-            },
-            interactivity: {
-                detect_on: "canvas",
-                events: {
-                    onhover: {
-                        enable: true,
-                        mode: "repulse"
-                    },
-                    onclick: {
-                        enable: true,
-                        mode: "push"
-                    },
-                    resize: true
-                },
-                modes: {
-                    grab: {
-                        distance: 400,
-                        line_linked: {
-                            opacity: 1
-                        }
-                    },
-                    bubble: {
-                        distance: 400,
-                        size: 40,
-                        duration: 2,
-                        opacity: 8,
-                        speed: 3
-                    },
-                    repulse: {
-                        distance: 200,
-                        duration: 0.4
-                    },
-                    push: {
-                        particles_nb: 4
-                    },
-                    remove: {
-                        particles_nb: 2
-                    }
-                }
-            },
-            retina_detect: true
-        });
-    </script>
-
-</body>
-</html>
+const STAR_COUNT = 400
+let result = ""
+for(let i = 0; i < STAR_COUNT; i++){
+    result += `${randomNumber(-50, 50)}vw ${randomNumber(-50, 50)}vh ${randomNumber(0, 1)}px ${randomNumber(0, 1)}px #fff,`
+}
+console.log(result.substring(0, result.length - 1))
