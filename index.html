@@ -50,6 +50,14 @@
             animation: fadeIn 2s ease-in-out; /* Fade in animation */
         }
 
+        /* Style for the phrase */
+        .phrase {
+            font-size: 1.5em; /* Adjust size as needed */
+            margin: 20px 0; /* Add margin above and below */
+            color: #ffffff; /* Text color */
+            text-shadow: 0 0 10px #ffffff; /* Glowing effect */
+        }
+
         /* Style for the search bar */
         .search-bar {
             display: flex;
@@ -102,6 +110,7 @@
     
     <div class="main">
         <h1>Zen</h1>
+        <div class="phrase" id="random-phrase"></div>
         <div class="search-bar">
             <input type="text" class="search-input" placeholder="Search...">
             <button class="search-button" onclick="performSearch()">Go</button>
@@ -112,6 +121,25 @@
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     
     <script>
+        // Array of phrases
+        const phrases = [
+            "ermm what the sigma.",
+            "i love interstellar!",
+            "v1.00 is horrible!",
+            "i can't code.",
+            "siege is a fun game!"
+        ];
+
+        // Function to display a random phrase
+        function displayRandomPhrase() {
+            const randomIndex = Math.floor(Math.random() * phrases.length);
+            const randomPhrase = phrases[randomIndex];
+            document.getElementById('random-phrase').textContent = randomPhrase;
+        }
+
+        // Call the function to display a random phrase on page load
+        displayRandomPhrase();
+
         // Initialize particles.js
         particlesJS("particles-js", {
             particles: {
