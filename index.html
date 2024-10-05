@@ -124,8 +124,9 @@
         <h1>Zen v1.00</h1>
         <div class="phrase" id="random-phrase"></div>
         <div class="search-bar">
-            <input type="text" class="search-input" id="search-input" placeholder="Search...">
-            <!-- Removed the Go button -->
+            <form id="search-form" action="https://www.google.com/search" method="get">
+                <input type="text" class="search-input" id="search-input" name="q" placeholder="Search..." required>
+            </form>
         </div>
     </div>
 
@@ -219,6 +220,13 @@
                 }
             },
             retina_detect: true
+        });
+
+        // Event listener for the search form
+        document.getElementById('search-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+            const query = document.getElementById('search-input').value; // Get the input value
+            window.location.href = `${encodeURIComponent(query)}`; // Redirect to Google search
         });
     </script>
 </body>
