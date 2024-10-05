@@ -16,16 +16,25 @@
             z-index: -1; /* Place behind other content */
             filter: blur(10px); /* Adjust the blur intensity here */
         }
-        
+
         body {
             background-color: #000;
+            margin: 0;
+            font-family: Arial, sans-serif;
         }
-        
+
         .main {
             position: relative; /* Make the main div position relative */
             z-index: 1; /* Ensure it's above the particles */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Full viewport height */
+            color: #7000cd; /* Heading color */
+            text-shadow: 0 0 20px #7000cd, 0 0 30px #7000cd; /* Glowing text effect */
         }
-        
+
         .content {
             position: relative; /* Make the content position relative */
             z-index: 1; /* Ensure it's above the particles */
@@ -34,30 +43,60 @@
             padding: 20px; /* Add some padding for better layout */
         }
 
+        h1 {
+            font-size: 4em;
+            margin: 0;
+            animation: fadeIn 2s ease-in-out; /* Fade in animation */
+        }
+
         .button {
-            padding: 10px 20px;
-            font-size: 16px;
+            padding: 15px 30px;
+            font-size: 20px;
             color: white;
-            background-color: #007bff; /* Button color */
+            background-color: #7000cd; /* Button color */
             border: none;
             border-radius: 5px; /* Rounded corners */
             cursor: pointer; /* Change cursor on hover */
-            transition: background-color 0.3s; /* Smooth transition */
+            transition: background-color 0.3s, transform 0.3s; /* Smooth transition */
+            animation: bounce 2s infinite; /* Bounce animation */
         }
 
         .button:hover {
             background-color: #0056b3; /* Darker shade on hover */
+            transform: scale(1.1); /* Scale effect on hover */
+        }
+
+        /* Keyframes for animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
         }
     </style>
 </head>
 <body>
     <div id="particles-js"></div>
     
-    <div class="main"></div>
-    
-    <div class="content">
-        <h1>Your Heading Here</h1>
-        <button class="button">Click Me!</button>
+    <div class="main">
+        <h1>Zen</h1>
+        <button class="button">Enter Site</button>
     </div>
 
     <!-- Include particles.js library -->
@@ -83,34 +122,14 @@
                         width: 0,
                         color: "#7000cd"
                     },
-                    polygon: {
-                        nb_sides: 5
-                    },
-                    image: {
-                        src: "img/github.svg",
-                        width: 100,
-                        height: 100
-                    }
                 },
                 opacity: {
                     value: 0.5,
                     random: false,
-                    anim: {
-                        enable: false,
-                        speed: 1,
-                        opacity_min: 0.1,
-                        sync: false
-                    }
                 },
                 size: {
                     value: 5,
                     random: true,
-                    anim: {
-                        enable: false,
-                        speed: 40,
-                        size_min: 0.1,
-                        sync: false
-                    }
                 },
                 line_linked: {
                     enable: true,
@@ -123,15 +142,7 @@
                     enable: true,
                     speed: 6,
                     direction: "none",
-                    random: false,
-                    straight: false,
                     out_mode: "out",
-                    bounce: false,
-                    attract: {
-                        enable: false,
-                        rotateX: 600,
-                        rotateY: 1200
-                    }
                 }
             },
             interactivity: {
@@ -148,28 +159,9 @@
                     resize: true
                 },
                 modes: {
-                    grab: {
-                        distance: 20,
-                        line_linked: {
-                            opacity: 1
-                        }
-                    },
-                    bubble: {
-                        distance: 400,
-                        size: 40,
-                        duration: 2,
-                        opacity: 8,
-                        speed: 3
-                    },
                     repulse: {
                         distance: 200,
                         duration: 0.4
-                    },
-                    push: {
-                        particles_nb: 4
-                    },
-                    remove: {
-                        particles_nb: 2
                     }
                 }
             },
