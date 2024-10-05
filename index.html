@@ -82,10 +82,41 @@
         .search-input:focus {
             border-color: #fff; /* Change border color on focus */
         }
+
+        /* Navigation bar styles */
+        .nav {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0; /* Margin above the navbar */
+            z-index: 1; /* Ensure it's above the particles */
+        }
+
+        .nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 10px; /* Space between tabs */
+            border: 2px solid transparent; /* Initial border */
+            border-radius: 5px; /* Rounded corners */
+            transition: border-color 0.3s, color 0.3s; /* Transition effect */
+        }
+
+        .nav a:hover {
+            border-color: #7000cd; /* Change border color on hover */
+            color: #7000cd; /* Change text color on hover */
+        }
     </style>
 </head>
 <body>
     <div id="particles-js"></div>
+    
+    <!-- Navigation bar -->
+    <div class="nav">
+        <a href="#home">Home</a>
+        <a href="#games">Games</a>
+        <a href="#apps">Apps</a>
+    </div>
+
     <div class="main">
         <h1>Zen</h1>
         <div class="phrase" id="random-phrase"></div>
