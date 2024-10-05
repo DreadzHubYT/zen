@@ -112,6 +112,7 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="search.js"></script> <!-- Include the new search.js file -->
 
     <script>
         // Array of phrases
@@ -205,11 +206,10 @@
         // Function to handle search
         function performSearch() {
             const searchTerm = document.querySelector('.search-input').value;
-            // Replace the URL below with your proxy search URL
-            const proxyUrl = `example.com/search?q=${encodeURIComponent(searchTerm)}`;
-            // Redirect or fetch data based on your proxy implementation
+            const template = 'example.com/search?q=%s'; // Your search template
+            const searchUrl = search(searchTerm, template); // Call the search function
             console.log('Searching for:', searchTerm); // Log for demonstration
-            window.location.href = proxyUrl; // Redirecting to the proxy URL
+            window.location.href = searchUrl; // Redirecting to the constructed URL
         }
     </script>
 </body>
