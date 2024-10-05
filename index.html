@@ -6,7 +6,7 @@
     <style>
         @keyframes rotate-gradient {
             0% { background-position: 0% 50%; }
-            100% { background-position: 100% 50%; }
+            100% { background-position: 200% 50%; }
         }
 
         .button-wrapper {
@@ -36,10 +36,10 @@
             bottom: -5px;
             border-radius: 20px; /* Rounded edges to match button */
             padding: 5px;
-            background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet, red);  /* Rainbow gradient */
-            background-size: 300%; /* Larger background to allow for smooth animation */
+            background: linear-gradient(90deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #ee82ee, #ff0000);  /* Brighter rainbow gradient */
+            background-size: 400%; /* Larger background for a smoother transition */
             z-index: 0;  /* Place the outline behind the button */
-            animation: rotate-gradient 4s linear infinite;  /* Animate the gradient */
+            animation: rotate-gradient 8s linear infinite;  /* Smoother, slower rotation */
         }
 
         .curved-button:hover {
