@@ -106,7 +106,7 @@
         <h1>Zen</h1>
         <div class="phrase" id="random-phrase"></div>
         <div class="search-bar">
-            <input type="text" class="search-input" placeholder="Search...">
+            <input type="text" class="search-input" id="search-input" placeholder="Search...">
             <button class="search-button" onclick="performSearch()">Go</button>
         </div>
     </div>
@@ -205,10 +205,10 @@
 
         // Function to handle search
         function performSearch() {
-            const searchTerm = document.querySelector('.search-input').value;
-            const searchUrl = search(searchTerm); // Call the search function from search.js
-            console.log('Searching for:', searchTerm); // Log for demonstration
-            window.location.href = searchUrl; // Redirecting to the constructed URL
+            const query = document.getElementById('search-input').value;
+            if (query) {
+                search(query);
+            }
         }
     </script>
 </body>
