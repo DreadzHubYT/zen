@@ -16,15 +16,42 @@
             left: 0;
             z-index: -1; /* Place behind other content */
         }
-        
+
+        /* Add a blurry background effect */
+        body {
+            overflow: hidden; /* Prevent scrolling */
+            margin: 0; /* Remove default margin */
+            background: rgba(255, 255, 255, 0.1); /* Light background */
+            backdrop-filter: blur(10px); /* Blurry effect */
+        }
+
         .main {
             position: relative; /* Make the main div position relative */
             z-index: 1; /* Ensure it's above the particles */
         }
-        
+
         .content {
             position: relative; /* Make the content position relative */
             z-index: 1; /* Ensure it's above the particles */
+            color: white; /* Change text color for visibility */
+            text-align: center; /* Center content */
+        }
+
+        h1 {
+            margin: 20px 0; /* Add margin around heading */
+        }
+
+        .button {
+            padding: 10px 20px; /* Add padding to button */
+            border: none; /* Remove border */
+            background-color: #007bff; /* Button background */
+            color: white; /* Button text color */
+            cursor: pointer; /* Change cursor to pointer */
+            border-radius: 5px; /* Rounded corners */
+        }
+
+        .button:hover {
+            background-color: #0056b3; /* Darker shade on hover */
         }
     </style>
 </head>
@@ -127,7 +154,7 @@
                 },
                 modes: {
                     grab: {
-                        distance: 400,
+                        distance: 200, // Adjust this value to change the grabbing distance
                         line_linked: {
                             opacity: 1
                         }
@@ -140,7 +167,7 @@
                         speed: 3
                     },
                     repulse: {
-                        distance: 200,
+                        distance: 50, // Make the mouse repulsion radius smaller
                         duration: 0.4
                     },
                     push: {
