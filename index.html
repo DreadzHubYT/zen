@@ -45,73 +45,59 @@
         }
 
         h1 {
-            font-size: 2em; /* Adjusted font size */
+            font-size: 4em;
             margin: 0;
             animation: fadeIn 2s ease-in-out; /* Fade in animation */
         }
 
+        /* Style for the phrase */
+        .phrase {
+            font-size: 1.2em; /* Adjust size to make it smaller */
+            margin: 20px 0; /* Add margin above and below */
+            color: #ffffff; /* Text color */
+            text-shadow: 0 0 10px #ffffff; /* Glowing effect */
+        }
+        
         /* Style for the search bar */
         .search-bar {
             display: flex;
-            align-items: center;
-            margin-top: 20px; /* Add space above the search bar */
-            background-color: #111111; /* Set background color of the search bar */
-            border-radius: 5px; /* Rounded corners for the search bar */
-            overflow: hidden; /* Ensure the rounded corners are respected */
         }
 
-        .search-input {
-            padding: 10px;
-            font-size: 18px;
-            border: none;
-            outline: none; /* Remove outline on focus */
-            width: 300px; /* Set width for the input */
-            color: white; /* Text color */
-            background-color: #111111; /* Match the background color */
-        }
-
-        .search-button {
-            padding: 10px 15px;
-            font-size: 18px;
-            color: white;
-            background-color: #7000cd; /* Button color */
-            border: none;
-            cursor: pointer; /* Change cursor on hover */
-            transition: background-color 0.3s; /* Smooth transition */
-        }
-
-        .search-button:hover {
-            background-color: #9b59b6; /* Lighter purple on hover */
-        }
-
-        /* Keyframes for animations */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
     </style>
 </head>
 <body>
     <div id="particles-js"></div>
-    
     <div class="main">
         <h1>Zen</h1>
+        <div class="phrase" id="random-phrase"></div>
         <div class="search-bar">
             <input type="text" class="search-input" placeholder="Search...">
             <button class="search-button" onclick="performSearch()">Go</button>
         </div>
     </div>
 
-    <!-- Include particles.js library -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    
+
     <script>
+        // Array of phrases
+        const phrases = [
+            "ermm what the sigma.",
+            "i love interstellar!",
+            "v1.00 is horrible!",
+            "i can't code.",
+            "siege is a fun game!"
+        ];
+        
+        // Function to display a random phrase
+        function displayRandomPhrase() {
+            const randomIndex = Math.floor(Math.random() * phrases.length);
+            const randomPhrase = phrases[randomIndex];
+            document.getElementById('random-phrase').textContent = randomPhrase;
+        }
+        
+        // Call the function to display a random phrase on page load
+        displayRandomPhrase();
+        
         // Initialize particles.js
         particlesJS("particles-js", {
             particles: {
