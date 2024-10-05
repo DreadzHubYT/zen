@@ -55,15 +55,19 @@
             display: flex;
             align-items: center;
             margin-top: 20px; /* Add space above the search bar */
+            background-color: #111111; /* Set background color of the search bar */
+            border-radius: 5px; /* Rounded corners for the search bar */
+            overflow: hidden; /* Ensure the rounded corners are respected */
         }
 
         .search-input {
             padding: 10px;
             font-size: 18px;
             border: none;
-            border-radius: 5px 0 0 5px; /* Rounded corners on the left */
             outline: none; /* Remove outline on focus */
             width: 300px; /* Set width for the input */
+            color: white; /* Text color */
+            background-color: #111111; /* Match the background color */
         }
 
         .search-button {
@@ -72,7 +76,6 @@
             color: white;
             background-color: #7000cd; /* Button color */
             border: none;
-            border-radius: 0 5px 5px 0; /* Rounded corners on the right */
             cursor: pointer; /* Change cursor on hover */
             transition: background-color 0.3s; /* Smooth transition */
         }
@@ -101,7 +104,7 @@
         <h1>Zen</h1>
         <div class="search-bar">
             <input type="text" class="search-input" placeholder="Search...">
-            <button class="search-button">Go</button>
+            <button class="search-button" onclick="performSearch()">Go</button>
         </div>
     </div>
 
@@ -173,6 +176,16 @@
             },
             retina_detect: true
         });
+
+        // Function to handle search
+        function performSearch() {
+            const searchTerm = document.querySelector('.search-input').value;
+            // Replace the URL below with your proxy search URL
+            const proxyUrl = `https://your-proxy-url.com/search?q=${encodeURIComponent(searchTerm)}`;
+            // Redirect or fetch data based on your proxy implementation
+            console.log('Searching for:', searchTerm); // Log for demonstration
+            window.location.href = proxyUrl; // Redirecting to the proxy URL
+        }
     </script>
 </body>
 </html>
