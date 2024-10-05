@@ -50,21 +50,35 @@
             animation: fadeIn 2s ease-in-out; /* Fade in animation */
         }
 
-        .button {
-            padding: 15px 30px;
-            font-size: 20px;
+        /* Style for the search bar */
+        .search-bar {
+            display: flex;
+            align-items: center;
+            margin-top: 20px; /* Add space above the search bar */
+        }
+
+        .search-input {
+            padding: 10px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px 0 0 5px; /* Rounded corners on the left */
+            outline: none; /* Remove outline on focus */
+            width: 300px; /* Set width for the input */
+        }
+
+        .search-button {
+            padding: 10px 15px;
+            font-size: 18px;
             color: white;
             background-color: #7000cd; /* Button color */
             border: none;
-            border-radius: 5px; /* Rounded corners */
+            border-radius: 0 5px 5px 0; /* Rounded corners on the right */
             cursor: pointer; /* Change cursor on hover */
-            transition: background-color 0.3s, transform 0.3s; /* Smooth transition */
-            animation: bounce 2s infinite; /* Bounce animation */
+            transition: background-color 0.3s; /* Smooth transition */
         }
 
-        .button:hover {
+        .search-button:hover {
             background-color: #9b59b6; /* Lighter purple on hover */
-            transform: scale(1.5); /* Slightly larger on hover */
         }
 
         /* Keyframes for animations */
@@ -78,18 +92,6 @@
                 transform: translateY(0);
             }
         }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateY(0);
-            }
-            40% {
-                transform: translateY(-5px); /* Reduced bounce */
-            }
-            60% {
-                transform: translateY(-2.5px); /* Reduced bounce */
-            }
-        }
     </style>
 </head>
 <body>
@@ -97,7 +99,10 @@
     
     <div class="main">
         <h1>Zen</h1>
-        <button class="button">Enter Site</button>
+        <div class="search-bar">
+            <input type="text" class="search-input" placeholder="Search...">
+            <button class="search-button">Go</button>
+        </div>
     </div>
 
     <!-- Include particles.js library -->
