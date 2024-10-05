@@ -36,18 +36,18 @@
             user-select: none; /* Prevent text selection */
         }
 
-        .content {
-            position: relative; /* Make the content position relative */
-            z-index: 1; /* Ensure it's above the particles */
-            color: white; /* Make text white for better visibility */
-            text-align: center; /* Center align content */
-            padding: 20px; /* Add some padding for better layout */
-        }
-
         h1 {
             font-size: 4em;
             margin: 0;
-            animation: fadeIn 2s ease-in-out; /* Fade in animation */
+            opacity: 0; /* Start hidden for fade-in */
+            animation: fadeIn 2s ease-in-out forwards; /* Fade in animation */
+        }
+
+        /* Animation keyframes for fading in */
+        @keyframes fadeIn {
+            to {
+                opacity: 1; /* Fully visible */
+            }
         }
 
         /* Style for the phrase */
@@ -116,13 +116,11 @@
     <script>
         // Array of phrases
         const phrases = [
-            "Ermm what the sigma.",
-            "I love interstellar!",
+            "ermm what the sigma.",
+            "i love interstellar!",
             "v1.00 is horrible!",
-            "I can't code.",
-            "Siege is a fun game!",
-            "Wow fun site!,
-            "Sick burn bro!"
+            "i can't code.",
+            "siege is a fun game!"
         ];
         
         // Function to display a random phrase
